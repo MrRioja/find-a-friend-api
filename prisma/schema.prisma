@@ -10,7 +10,7 @@ datasource db {
 model Organization {
   id               String   @id @default(uuid())
   responsible_name String
-  email            String
+  email            String   @unique
   cep              String
   address          String
   whatsapp         String
