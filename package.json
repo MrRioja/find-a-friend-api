@@ -4,16 +4,33 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "start": "node build/server.js",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
+    "test:ui": "vitest --ui",
+    "test:install-prisma-environment": "yarn link vitest-environment-prisma",
+    "test:create-prisma-environment": "cd ./prisma/vitest-environment-prisma && yarn link",
+    "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
+    "test:e2e": "vitest run --dir src/http",
+    "test:e2e:watch": "vitest --dir src/http",
+    "test": "vitest run --dir src/use-cases",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest --dir src/use-cases"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.0.1",
     "@types/node": "^20.4.2",
+    "@types/supertest": "^2.0.12",
+    "@vitest/coverage-c8": "^0.33.0",
+    "@vitest/ui": "^0.33.0",
     "eslint": "^8.44.0",
     "prisma": "^5.0.0",
+    "supertest": "^6.3.3",
     "tsup": "^7.1.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.33.0"
   },
   "dependencies": {
     "@fastify/cookie": "^8.3.0",
