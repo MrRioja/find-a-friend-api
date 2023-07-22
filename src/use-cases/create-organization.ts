@@ -1,3 +1,4 @@
+import { hash } from 'bcryptjs'
 import { Organization } from '@prisma/client'
 
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
@@ -27,6 +28,8 @@ export class CreateOrganizationUseCase {
     whatsapp,
     responsible_name,
   }: CreateOrganizationUseCaseRequest): Promise<CreateOrganizationUseCaseResponse> {
+    const password_hash = await hash(password, 6)
+
     const org = await this.organizationsRepository.findByEmail(email)
 
     if (org) {
@@ -37,9 +40,9 @@ export class CreateOrganizationUseCase {
       cep,
       email,
       address,
-      password,
       whatsapp,
       responsible_name,
+      password: password_hash,
     })
 
     return { organization }
