@@ -50,7 +50,7 @@ O propósito desse repositório é conter o código da API dessa aplicação, co
 - [ ] Um pet deve estar ligado a uma ORG.
 - [ ] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp.
 - [ ] Todos os filtros, além da cidade, são opcionais.
-- [ ] Para uma ORG acessar a aplicação como admin, ela precisa estar logada.
+- [x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada.
 
 As requisições para testar a API estão disponíveis no botão abaixo:
 
