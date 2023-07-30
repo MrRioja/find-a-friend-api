@@ -16,6 +16,8 @@ model Organization {
   whatsapp         String
   password         String
   created_at       DateTime @default(now())
+
+  Pet Pet[]
 }
 
 model Pet {
@@ -27,16 +29,18 @@ model Pet {
   energy_level       String
   independence_level String
   environment        String
+  organization_id    String
   created_at         DateTime @default(now())
 
-  AdoptionRequirements AdoptionRequirements[]
+  adoptionRequirements AdoptionRequirements[]
+  organization         Organization           @relation(fields: [organization_id], references: [id])
 }
 
 model AdoptionRequirements {
   id          String   @id @default(uuid())
   description String
-  petId       String
+  pet_id      String
   created_at  DateTime @default(now())
 
-  pet Pet @relation(fields: [petId], references: [id])
+  pet Pet @relation(fields: [pet_id], references: [id])
 }
