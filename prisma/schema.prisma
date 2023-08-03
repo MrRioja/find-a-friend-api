@@ -30,6 +30,7 @@ model Pet {
   independence_level String
   environment        String
   organization_id    String
+  city               String
   created_at         DateTime @default(now())
 
   adoptionRequirements AdoptionRequirements[]
