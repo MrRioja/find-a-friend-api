@@ -23,6 +23,7 @@ describe('Create Pet (e2e)', () => {
         age: 1,
         name: 'Dog',
         size: 'small',
+        city: 'São Paulo',
         about: 'A small dog',
         energy_level: 'high',
         independence_level: 'low',

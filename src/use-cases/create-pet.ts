@@ -6,6 +6,7 @@ interface CreatePetUseCaseRequest {
   age: number
   name: string
   size: string
+  city: string
   about: string
   environment: string
   energy_level: string
@@ -24,6 +25,7 @@ export class CreatePetUseCase {
     age,
     name,
     size,
+    city,
     about,
     environment,
     energy_level,
@@ -33,6 +35,7 @@ export class CreatePetUseCase {
     const pet = await this.petsRepository.create({
       name,
       size,
+      city,
       about,
       environment,
       energy_level,
