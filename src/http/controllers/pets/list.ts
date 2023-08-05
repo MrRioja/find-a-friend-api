@@ -26,5 +26,5 @@ export async function list(req: FastifyRequest, reply: FastifyReply) {
     independence_level,
   })
 
-  return reply.status(201).send(pets)
+  return reply.status(200).send(pets)
 }
