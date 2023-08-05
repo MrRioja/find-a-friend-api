@@ -1,5 +1,6 @@
 import { Pet } from '@prisma/client'
 
+import { prisma } from '@/lib/prisma'
 import { PetsRepository } from '@/repositories/pets-repository'
 
 interface CreatePetUseCaseRequest {
@@ -12,6 +13,7 @@ interface CreatePetUseCaseRequest {
   energy_level: string
   organization_id: string
   independence_level: string
+  adoption_requirements?: string[]
 }
 
 interface CreatePetUseCaseResponse {
@@ -31,6 +33,7 @@ export class CreatePetUseCase {
     energy_level,
     organization_id,
     independence_level,
+    adoption_requirements,
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
     const pet = await this.petsRepository.create({
       name,
@@ -43,6 +46,16 @@ export class CreatePetUseCase {
       age: Number(age),
       independence_level,
     })
+
+    if (adoption_requirements) {
+      const requirements = adoption_requirements.map((requirement) => {
+        return { pet_id: pet.id, description: requirement }
+      })
+
+      await prisma.adoptionRequirements.createMany({
+        data: requirements,
+      })
+    }
 
     return { pet }
   }

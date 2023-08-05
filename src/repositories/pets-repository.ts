@@ -7,6 +7,7 @@ export interface ListData {
   environment?: string
   energy_level?: string
   independence_level?: string
+  adoption_requirements?: string[]
 }
 
 export interface PetsRepository {
