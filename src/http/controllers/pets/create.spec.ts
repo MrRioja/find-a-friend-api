@@ -28,6 +28,7 @@ describe('Create Pet (e2e)', () => {
         energy_level: 'high',
         independence_level: 'low',
         environment: 'small environments',
+        adoption_requirements: ['An adoption requirement'],
       })
 
     expect(response.statusCode).toEqual(201)
