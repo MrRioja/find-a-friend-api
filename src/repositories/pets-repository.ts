@@ -10,7 +10,12 @@ export interface ListData {
   adoption_requirements?: string[]
 }
 
+export interface FindData {
+  id: string
+}
+
 export interface PetsRepository {
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
   list(data: ListData): Promise<Pet[]>
+  find(data: FindData): Promise<Pet | null>
 }
