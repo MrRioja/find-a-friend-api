@@ -15,9 +15,9 @@ export async function list(req: FastifyRequest, reply: FastifyReply) {
   const { city, age, energy_level, environment, independence_level, size } =
     listPetsQueryParamsSchema.parse(req.query)
 
-  const listPetUseCase = makeListPetsUseCase()
+  const listPetsUseCase = makeListPetsUseCase()
 
-  const { pets } = await listPetUseCase.execute({
+  const { pets } = await listPetsUseCase.execute({
     age,
     city,
     size,
