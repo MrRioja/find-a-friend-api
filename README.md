@@ -54,7 +54,7 @@ O propósito desse repositório é conter o código da API dessa aplicação, co
 
 As requisições para testar a API estão disponíveis no botão abaixo:
 
-[![Run in Insomnia](https://insomnia.rest/images/run.svg)]()
+[![Run in Insomnia](https://insomnia.rest/images/run.svg)](https://github.com/MrRioja/find-a-friend-api/blob/08046c8c7dcca28ffa2c4e5d4f4236a35489bcb1/.github/Insomnia_2023-08-06.json)
 
 ## Instalação
 
